@@ -203,12 +203,7 @@ const FileUpload = () => {
           display="none"
           width={'100%'}
         />
-        <Text
-          onClick={() => input.current?.click()}
-          cursor="pointer"
-          textAlign="center"
-          width="100%"
-        >
+        <Text cursor="pointer" textAlign="center" width="100%">
           Click to upload the site folder
         </Text>
       </Flex>
