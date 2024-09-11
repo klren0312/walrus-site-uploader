@@ -25,7 +25,7 @@ export function UploadStepper({
   setActiveStep: React.Dispatch<React.SetStateAction<number>>
 }) {
   return (
-    <Stepper index={activeStep}>
+    <Stepper index={activeStep} width={'100%'}>
       {steps.map((step, index) => (
         <Step key={index}>
           <StepIndicator>
