@@ -1,6 +1,7 @@
 // src/components/FileUpload.js
 import React, { useEffect, useRef, useState } from 'react'
 import {
+  Box,
   Button,
   Card,
   CardBody,
@@ -178,8 +179,8 @@ const FileUpload = () => {
     <VStack
       spacing={4}
       align="stretch"
-      maxWidth={'1080px'}
-      minWidth={'900px'}
+      maxWidth={'900px'}
+      width={'100%'}
       height={'100%'}
       justifyContent={'center'}
       alignItems={'center'}
@@ -219,6 +220,7 @@ const FileUpload = () => {
         <Button
           colorScheme="teal"
           width={'100%'}
+          height={'80px'}
           onClick={async () => {
             if (activeStep === 1) {
               handleUpload_walrus({ data: files || [] })
@@ -255,49 +257,73 @@ const FileUpload = () => {
         open={open}
         onOpenChange={(isOpen) => setOpen(isOpen)}
       />
-      <Card width="100%">
-        <CardHeader>
-          <Heading size={'lg'}>Selected Files</Heading>
-        </CardHeader>
+      <Flex
+        width="100%"
+        height={'100%'}
+        maxHeight={'400px'}
+        flexDirection={'column'}
+        borderWidth={'1px'}
+        rounded={'lg'}
+      >
+        <Flex width={'100%'} justifyContent={'space-between'}>
+          <Heading width={'100%'} padding={'1rem'} size={'lg'}>
+            Selected Files
+          </Heading>
+          {files && (
+            <Heading width={'100%'} padding={'1rem'} size={'md'}>
+              Total {files?.length} Files
+            </Heading>
+          )}
+        </Flex>
+
         <Divider />
-        <CardBody
+        <Box
           display={'flex'}
           gap={'0.5rem'}
           flexDirection={'column'}
           overflowY="scroll"
           maxHeight="500px"
           borderRadius="md"
+          style={{
+            msScrollbarTrackColor: 'f1f1f1',
+          }}
         >
           {files &&
             files.map((file) => {
               return (
                 <Flex
                   key={file.path}
-                  height={'50px'}
+                  height={'55px'}
                   width="100%"
-                  borderWidth={'1px'}
                   flexDirection={'row'}
                   style={{
                     justifyContent: 'space-between',
                     alignItems: 'center',
-                    padding: '1rem',
                   }}
+                  gap={'0.5rem'}
                 >
-                  <Text isTruncated>{file.path}</Text>
-                  <Text isTruncated>
-                    {file.blobId ? (
-                      file.blobId
-                    ) : file.upload_waiting ? (
-                      <Spinner />
-                    ) : (
-                      'Waiting for upload'
-                    )}
-                  </Text>
+                  <Flex
+                    borderWidth={'1px'}
+                    width="100%"
+                    padding={'1rem'}
+                    justifyContent={'space-between'}
+                  >
+                    <Text isTruncated>{file.path}</Text>
+                    <Text isTruncated>
+                      {file.blobId ? (
+                        file.blobId
+                      ) : file.upload_waiting ? (
+                        <Spinner />
+                      ) : (
+                        'Waiting for upload'
+                      )}
+                    </Text>
+                  </Flex>
                 </Flex>
               )
             })}
-        </CardBody>
-      </Card>
+        </Box>
+      </Flex>
     </VStack>
   )
 }

@@ -10,6 +10,7 @@ export default function Home() {
         align="center"
         height={'100%'}
         flexDirection={'column'}
+        gap={'2rem'}
       >
         <FileUpload />
         <Box textAlign="center">
