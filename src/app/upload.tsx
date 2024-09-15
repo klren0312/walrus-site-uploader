@@ -44,6 +44,7 @@ const FileUpload = () => {
   const [url, setUrl] = useState('')
 
   const [upload_loading, setUpload_loading] = useState(false)
+  const [objectId, setObjectId] = useState('')
 
   const { activeStep, setActiveStep } = useSteps({
     index: 0,
@@ -180,19 +181,19 @@ const FileUpload = () => {
           })
           setDigest(result.digest)
           setUpload_loading(false)
-          if (object)
+          if (object) {
+            setObjectId('objectId' in object ? object.objectId : '')
             setUrl(
               `https://${idToBase36('objectId' in object ? object.objectId : '')}.walrus.site/`,
             )
+          }
           setActiveStep(3)
         },
         onError: (error) => {
           console.error('error', error)
           setUpload_loading(false)
         },
-        onSettled: () => {
-          setUpload_loading(false)
-        },
+        onSettled: () => {},
       },
     )
   }
@@ -264,9 +265,9 @@ const FileUpload = () => {
         </Button>
       )}
       <Text> {digest} </Text>
+      {objectId && <Text> ObjectId:{objectId}</Text>}
       {url && (
         <Link href={url} target="_blank">
-          {' '}
           {url}
         </Link>
       )}
