@@ -153,6 +153,8 @@ const FileUpload = () => {
         blobId: file.blobId!,
       }
     })
+
+    setUpload_loading(true)
     signAndExecuteTransaction(
       {
         transaction: build_txn({
@@ -164,6 +166,7 @@ const FileUpload = () => {
       {
         onSuccess: async (result) => {
           console.log('executed transaction', result)
+          setUpload_loading(false)
           const transaction = await client.waitForTransaction({
             digest: result.digest,
             options: {
@@ -183,6 +186,13 @@ const FileUpload = () => {
             )
           setActiveStep(3)
         },
+        onError: (error) => {
+          console.error('error', error)
+          setUpload_loading(false)
+        },
+        onSettled: () => {
+          setUpload_loading(false)
+        }
       },
     )
   }
