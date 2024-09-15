@@ -43,6 +43,8 @@ const FileUpload = () => {
   const [digest, setDigest] = useState('')
   const [url, setUrl] = useState('')
 
+  const [upload_loading, setUpload_loading] = useState(false)
+
   const { activeStep, setActiveStep } = useSteps({
     index: 0,
     count: steps.length,
@@ -88,46 +90,59 @@ const FileUpload = () => {
       return
     }
 
-    for (const e of data) {
-      if (e.blobId) {
-        continue
+    setUpload_loading(true)
+
+    try {
+      for (const e of data) {
+        if (e.blobId) {
+          continue
+        }
+
+        setFiles((prev) => {
+          return prev!.map((file) => {
+            if (file.path === e.path) {
+              return {
+                ...file,
+                upload_waiting: true,
+              }
+            }
+            return file
+          })
+        })
+
+        const response = await fetch(
+          'https://publisher-devnet.walrus.space/v1/store',
+          {
+            method: 'PUT',
+            body: e.content,
+          },
+        )
+        const json = await response.json()
+
+        console.log(
+          json?.alreadyCertified?.blobId ||
+            json?.newlyCreated.blobObject.blobId,
+        )
+
+        setFiles((prev) => {
+          return prev!.map((file) => {
+            if (file.path === e.path) {
+              return {
+                ...file,
+                blobId:
+                  json?.alreadyCertified?.blobId ||
+                  json?.newlyCreated.blobObject.blobId,
+                upload_waiting: false,
+              }
+            }
+            return file
+          })
+        })
       }
-
-      setFiles((prev) => {
-        return prev!.map((file) => {
-          if (file.path === e.path) {
-            return {
-              ...file,
-              upload_waiting: true,
-            }
-          }
-          return file
-        })
-      })
-
-      const response = await fetch(
-        'https://publisher-devnet.walrus.space/v1/store',
-        {
-          method: 'PUT',
-          body: e.content,
-        },
-      )
-      const json = await response.json()
-
-      console.log(json?.alreadyCertified?.blobId)
-
-      setFiles((prev) => {
-        return prev!.map((file) => {
-          if (file.path === e.path) {
-            return {
-              ...file,
-              blobId: json?.alreadyCertified?.blobId,
-              upload_waiting: false,
-            }
-          }
-          return file
-        })
-      })
+    } catch (e) {
+      console.error(e)
+    } finally {
+      setUpload_loading(false)
     }
   }
 
@@ -213,6 +228,7 @@ const FileUpload = () => {
           colorScheme="teal"
           width={'100%'}
           height={'80px'}
+          isLoading={upload_loading}
           onClick={async () => {
             if (activeStep === 1) {
               handleUpload_walrus({ data: files || [] })
