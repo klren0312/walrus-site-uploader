@@ -192,7 +192,7 @@ const FileUpload = () => {
         },
         onSettled: () => {
           setUpload_loading(false)
-        }
+        },
       },
     )
   }
