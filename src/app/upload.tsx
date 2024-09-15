@@ -83,6 +83,9 @@ const FileUpload = () => {
     }
     console.log(data)
     setFiles(data)
+    setObjectId('')
+    setDigest('')
+    setUrl('')
     setActiveStep(1)
   }
 
