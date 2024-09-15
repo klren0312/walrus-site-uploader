@@ -166,7 +166,6 @@ const FileUpload = () => {
       {
         onSuccess: async (result) => {
           console.log('executed transaction', result)
-          setUpload_loading(false)
           const transaction = await client.waitForTransaction({
             digest: result.digest,
             options: {
@@ -180,6 +179,7 @@ const FileUpload = () => {
             return false
           })
           setDigest(result.digest)
+          setUpload_loading(false)
           if (object)
             setUrl(
               `https://${idToBase36('objectId' in object ? object.objectId : '')}.walrus.site/`,
