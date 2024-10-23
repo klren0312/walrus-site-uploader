@@ -115,7 +115,7 @@ const FileUpload = () => {
         })
 
         const response = await fetch(
-          'https://publisher-devnet.walrus.space/v1/store',
+          'https://publisher.walrus-testnet.walrus.space/v1/store',
           {
             method: 'PUT',
             body: e.content,
