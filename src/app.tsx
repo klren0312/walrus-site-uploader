@@ -10,9 +10,8 @@ import { get_blobId, get_file_hash } from './utils'
 import { Buffer } from "buffer";
 window.Buffer = Buffer;
 
-import { Base64, toBase64 } from "js-base64";
+import { Base64, } from "js-base64";
 import { FileDetail, UploadWalrusResponse } from "./type";
-import { bcs, toB64 } from "@mysten/bcs";
 
 
 function idToBase36(id: Uint8Array) {
@@ -96,29 +95,7 @@ function getMimeType(filename: string) {
   return mimeTypes[`.${ext}`] || "application/octet-stream"; // 默认 MIME 类型
 }
 
-console.log(Base64.toUint8Array("YVqV9kD_xwGWyI3eCZiscNfoVc8zsd9-81x5iDz_b7o"));
 
-console.log(
-  "get_blobId ",
-  get_blobId("TaEhjh2mR_S7t_bWbXXyxFQ9MeRRRSURM713zX7WdTc")
-);
-
-const id = new Uint8Array(
-  Buffer.from(
-    "0xaf4eafdac7039b742b5ee59d702428df36670b94164c3c388b74c5dca0f0e41e".replace(
-      "0x",
-      ""
-    ),
-    "hex"
-  )
-);
-console.log(idToBase36(id));
-console.log(
-  Buffer.from(
-    "c100d0cb55401738f9783890e7679d97a6aab5856a67c009c6f72e711de4c669",
-    "hex"
-  )
-);
 export function App() {
   return (
     <>
@@ -138,7 +115,15 @@ function Upload({
 }) {
   const { mutate: signAndExecuteTransaction } = useSignAndExecuteTransaction();
   const account = useCurrentAccount();
-
+  /**
+   * new_site 新页面标题                                                  序号 0
+   * 
+   * new_range_option 创建range, 0, 1                                    序号 1
+   * new_resource 路径, blobid, 文件hash, range result 1                  序号 2
+   * add_header range result 2, content-encoding, identity               序号 3
+   * add_header range result 2, content-type, 文件mime类型                序号 4
+   * add_resource range result 0, range result 2 第二个参数是最后一个的序号  序号 5
+   */
   return (
     <>
       <button
@@ -161,6 +146,7 @@ function Upload({
               arguments: [
                 txb.pure.string(`/${v.name}`),
                 txb.pure.u256(get_blobId(v.blobId)),
+                txb.pure.u256(v.content)
               ],
             });
             txb.moveCall({
