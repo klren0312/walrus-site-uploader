@@ -20,7 +20,13 @@ import {
   useSteps,
   useToast,
 } from '@chakra-ui/react'
-import { build_txn, FileContent, get_file_hash, addressToBase36, readFileAsText } from './utils'
+import {
+  build_txn,
+  FileContent,
+  get_file_hash,
+  addressToBase36,
+  readFileAsText,
+} from './utils'
 import { steps, UploadStepper } from './stepper'
 import {
   ConnectModal,
@@ -29,7 +35,6 @@ import {
   useSuiClient,
 } from '@mysten/dapp-kit'
 import { PACKAGEID } from './const'
-
 
 const FileUpload = () => {
   const [files, setFiles] = useState<FileContent[] | null>(null)
@@ -80,7 +85,7 @@ const FileUpload = () => {
         name: file.name,
         path: `${file.webkitRelativePath.split('/').slice(1).join('/')}`,
         content: content,
-        fileHash
+        fileHash,
       })
     }
     console.log(data)
@@ -100,7 +105,7 @@ const FileUpload = () => {
 
     try {
       // 直接异步干
-      data.forEach(async e => {
+      data.forEach(async (e) => {
         if (e.blobId) {
           return
         }

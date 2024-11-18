@@ -3,7 +3,6 @@ import { bcs } from '@mysten/bcs'
 import { Base64 } from 'js-base64'
 import { PACKAGEID } from '../const'
 import { Transaction } from '@mysten/sui/transactions'
-import { Buffer } from 'buffer'
 import mime from 'mime'
 export interface FileContent {
   name: string
