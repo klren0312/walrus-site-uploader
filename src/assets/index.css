@@ -94,3 +94,7 @@ button:focus-visible,
 .align-center {
   align-items: center;
 }
+
+.error-text {
+  color: #ff0000;
+}

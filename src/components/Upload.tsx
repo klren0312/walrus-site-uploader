@@ -17,6 +17,8 @@ export default function Upload({
     content: string
   }[]
 }) {
+  const [genLoading, setGenLoading] = useState(false)
+  const [error, setError] = useState('')
   const [url, setUrl] = useState('')
   const { mutate: signAndExecuteTransaction } = useSignAndExecuteTransaction()
   const account = useCurrentAccount()
@@ -133,7 +135,7 @@ export default function Upload({
     })
 
     txb.transferObjects([site], txb.pure.address(account.address))
-
+    setGenLoading(true)
     signAndExecuteTransaction(
       {
         transaction: txb,
@@ -142,7 +144,12 @@ export default function Upload({
         onSuccess: (result) => {
           console.log('executed transaction', result)
           getWalrusUrl(result.digest)
+          setGenLoading(false)
         },
+        onError: (error) => {
+          setError(error.message)
+          setGenLoading(false)
+        }
       }
     )
   }
@@ -153,8 +160,14 @@ export default function Upload({
         上传
       </button>
       {
+        genLoading && <div>生成中。。。。。。</div>
+      }
+      {
+        error && <div className="error-text">{error}</div>
+      }
+      {
         url ?
-        <a href={url} target="__blank">{url}</a> :
+        <div><a href={url} target="__blank">{url}</a></div> :
         ''
       }
     </>
