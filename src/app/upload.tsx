@@ -105,9 +105,9 @@ const FileUpload = () => {
 
     try {
       // 直接异步干
-      data.forEach(async (e) => {
+      for (const e of data) {
         if (e.blobId) {
-          return
+          continue
         }
 
         setFiles((prev) => {
@@ -150,7 +150,7 @@ const FileUpload = () => {
             return file
           })
         })
-      })
+      }
     } catch (e) {
       console.error(e)
     } finally {
