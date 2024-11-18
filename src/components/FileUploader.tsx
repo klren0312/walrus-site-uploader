@@ -46,7 +46,7 @@ const FileUploader = () => {
           ...prev,
           detail
         ])
-        
+        // 上传文件到walrus存储
         const resJson: UploadWalrusResponse = await fetch(
           'https://publisher.walrus-testnet.walrus.space/v1/store',
           {
@@ -67,6 +67,7 @@ const FileUploader = () => {
         } else if (resJson.newlyCreated) {
           blobId = resJson.newlyCreated.blobObject.blobId
         }
+        // 计算文件的u256
         const contentHash = await get_file_hash(file)
         setData((prev) => [
           ...prev,

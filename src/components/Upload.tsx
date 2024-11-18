@@ -2,9 +2,11 @@ import { Transaction } from '@mysten/sui/transactions'
 import {
   useCurrentAccount,
   useSignAndExecuteTransaction,
+  useSuiClientContext,
 } from '@mysten/dapp-kit'
 import mime from 'mime'
-import { get_blobId } from '../utils'
+import { addressToBase36, get_blobId } from '../utils'
+import { useState } from 'preact/hooks'
 
 export default function Upload({
   data,
@@ -15,8 +17,41 @@ export default function Upload({
     content: string
   }[]
 }) {
+  const [url, setUrl] = useState('')
   const { mutate: signAndExecuteTransaction } = useSignAndExecuteTransaction()
   const account = useCurrentAccount()
+  const context = useSuiClientContext()
+  /**
+   * 通过交易hash获取site的objectId
+   * @param digest 交易hash
+   */
+  const getWalrusUrl = async (digest: string) => {
+    const client = context.client
+    const res = await client.getTransactionBlock({
+      digest,
+      options: {
+        showBalanceChanges: true,
+        /** Whether to show transaction effects. Default to be False */
+        showEffects: true,
+        /** Whether to show transaction events. Default to be False */
+        showEvents: true,
+        /** Whether to show transaction input data. Default to be False */
+        showInput: true,
+        /** Whether to show object_changes. Default to be False */
+        showObjectChanges: true,
+        /** Whether to show raw transaction effects. Default to be False */
+        showRawEffects: true,
+        /** Whether to show bcs-encoded transaction input data */
+        showRawInput: true,
+      }
+    })
+    const objectId = res.effects?.created?.find(item => (item.owner as { AddressOwner: string }).AddressOwner === account?.address)?.reference.objectId
+    if (objectId) {
+      const base36 = addressToBase36(objectId)
+      const url = `https://${base36}.walrus.site`
+      setUrl(url)
+    }
+  }
   /**
    * new_site 新页面标题
    * new_range_option 创建range, 0, 1
@@ -86,7 +121,6 @@ export default function Upload({
           txb.pure.string(mime.getType(item.name) || ''),
         ],
       })
-      console.log(site, newRange, resource)
       txb.moveCall({
         package: '0xc5bebae319fc9d2a9dc858b7484cdbd6ef219decf4662dc81a11dc69bb7a5fa7',
         module: 'site',
@@ -107,6 +141,7 @@ export default function Upload({
       {
         onSuccess: (result) => {
           console.log('executed transaction', result)
+          getWalrusUrl(result.digest)
         },
       }
     )
@@ -117,6 +152,11 @@ export default function Upload({
       <button onClick={doUpload}>
         上传
       </button>
+      {
+        url ?
+        <a href={url} target="__blank">{url}</a> :
+        ''
+      }
     </>
   )
 }

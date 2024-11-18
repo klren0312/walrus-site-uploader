@@ -14,7 +14,9 @@ const { networkConfig } = createNetworkConfig({
 render(
     <QueryClientProvider client={queryClient}>
         <SuiClientProvider networks={networkConfig} defaultNetwork="testnet">
-            <WalletProvider autoConnect><App /></WalletProvider>
+            <WalletProvider autoConnect>
+                <App />
+            </WalletProvider>
         </SuiClientProvider>
     </QueryClientProvider>,
     document.getElementById('app')!

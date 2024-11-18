@@ -9,19 +9,19 @@ importers:
   .:
     dependencies:
       '@aptos-labs/ts-sdk':
-        specifier: ^1.27.1
+        specifier: ^1.33.0
         version: 1.33.0
       '@mysten/bcs':
-        specifier: ^1.0.4
+        specifier: ^1.1.0
         version: 1.1.0
       '@mysten/dapp-kit':
-        specifier: ^0.14.19
-        version: 0.14.33(@tanstack/react-query@5.60.5)(react-dom@18.3.1)(react@18.3.1)(typescript@5.6.3)
+        specifier: ^0.14.33
+        version: 0.14.33(@tanstack/react-query@5.60.5(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3)
       '@mysten/sui':
-        specifier: ^1.8.0
+        specifier: ^1.14.3
         version: 1.14.3(typescript@5.6.3)
       '@tanstack/react-query':
-        specifier: ^5.55.4
+        specifier: ^5.60.5
         version: 5.60.5(react@18.3.1)
       base36:
         specifier: ^1.0.0
@@ -30,7 +30,7 @@ importers:
         specifier: ^6.0.3
         version: 6.0.3
       file-type:
-        specifier: ^19.5.0
+        specifier: ^19.6.0
         version: 19.6.0
       js-base64:
         specifier: ^3.7.7
@@ -42,18 +42,18 @@ importers:
         specifier: ^2.1.35
         version: 2.1.35
       preact:
-        specifier: ^10.23.1
+        specifier: ^10.24.3
         version: 10.24.3
     devDependencies:
       '@preact/preset-vite':
-        specifier: ^2.9.0
-        version: 2.9.1(@babel/core@7.26.0)(preact@10.24.3)(vite@5.4.11)
+        specifier: ^2.9.1
+        version: 2.9.1(@babel/core@7.26.0)(preact@10.24.3)(vite@5.4.11(@types/node@22.9.0))
       typescript:
-        specifier: ^5.5.3
+        specifier: ^5.6.3
         version: 5.6.3
       vite:
-        specifier: ^5.4.1
-        version: 5.4.11
+        specifier: ^5.4.11
+        version: 5.4.11(@types/node@22.9.0)
 
 packages:
 
@@ -1454,7 +1454,7 @@ packages:
 snapshots:
 
   '@0no-co/graphql.web@1.0.11(graphql@16.9.0)':
-    dependencies:
+    optionalDependencies:
       graphql: 16.9.0
 
   '@0no-co/graphqlsp@1.12.16(graphql@16.9.0)(typescript@5.6.3)':
@@ -1706,7 +1706,7 @@ snapshots:
       '@floating-ui/core': 1.6.8
       '@floating-ui/utils': 0.2.8
 
-  '@floating-ui/react-dom@2.1.2(react-dom@18.3.1)(react@18.3.1)':
+  '@floating-ui/react-dom@2.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@floating-ui/dom': 1.6.12
       react: 18.3.1
@@ -1714,7 +1714,7 @@ snapshots:
 
   '@floating-ui/utils@0.2.8': {}
 
-  '@gql.tada/cli-utils@1.6.3(@0no-co/graphqlsp@1.12.16)(graphql@16.9.0)(typescript@5.6.3)':
+  '@gql.tada/cli-utils@1.6.3(@0no-co/graphqlsp@1.12.16(graphql@16.9.0)(typescript@5.6.3))(graphql@16.9.0)(typescript@5.6.3)':
     dependencies:
       '@0no-co/graphqlsp': 1.12.16(graphql@16.9.0)(typescript@5.6.3)
       '@gql.tada/internal': 1.0.8(graphql@16.9.0)(typescript@5.6.3)
@@ -1752,13 +1752,13 @@ snapshots:
     dependencies:
       bs58: 6.0.0
 
-  '@mysten/dapp-kit@0.14.33(@tanstack/react-query@5.60.5)(react-dom@18.3.1)(react@18.3.1)(typescript@5.6.3)':
+  '@mysten/dapp-kit@0.14.33(@tanstack/react-query@5.60.5(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3)':
     dependencies:
       '@mysten/sui': 1.14.3(typescript@5.6.3)
       '@mysten/wallet-standard': 0.13.12(typescript@5.6.3)
       '@mysten/zksend': 0.12.1(typescript@5.6.3)
-      '@radix-ui/react-dialog': 1.1.2(react-dom@18.3.1)(react@18.3.1)
-      '@radix-ui/react-dropdown-menu': 2.1.2(react-dom@18.3.1)(react@18.3.1)
+      '@radix-ui/react-dialog': 1.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-dropdown-menu': 2.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-slot': 1.1.0(react@18.3.1)
       '@tanstack/react-query': 5.60.5(react@18.3.1)
       '@vanilla-extract/css': 1.16.0
@@ -1823,13 +1823,13 @@ snapshots:
 
   '@noble/hashes@1.5.0': {}
 
-  '@preact/preset-vite@2.9.1(@babel/core@7.26.0)(preact@10.24.3)(vite@5.4.11)':
+  '@preact/preset-vite@2.9.1(@babel/core@7.26.0)(preact@10.24.3)(vite@5.4.11(@types/node@22.9.0))':
     dependencies:
       '@babel/code-frame': 7.26.2
       '@babel/core': 7.26.0
       '@babel/plugin-transform-react-jsx': 7.25.9(@babel/core@7.26.0)
       '@babel/plugin-transform-react-jsx-development': 7.25.9(@babel/core@7.26.0)
-      '@prefresh/vite': 2.4.6(preact@10.24.3)(vite@5.4.11)
+      '@prefresh/vite': 2.4.6(preact@10.24.3)(vite@5.4.11(@types/node@22.9.0))
       '@rollup/pluginutils': 4.2.1
       babel-plugin-transform-hook-names: 1.0.2(@babel/core@7.26.0)
       debug: 4.3.7
@@ -1838,7 +1838,7 @@ snapshots:
       node-html-parser: 6.1.13
       source-map: 0.7.4
       stack-trace: 1.0.0-pre2
-      vite: 5.4.11
+      vite: 5.4.11(@types/node@22.9.0)
     transitivePeerDependencies:
       - preact
       - supports-color
@@ -1851,7 +1851,7 @@ snapshots:
 
   '@prefresh/utils@1.2.0': {}
 
-  '@prefresh/vite@2.4.6(preact@10.24.3)(vite@5.4.11)':
+  '@prefresh/vite@2.4.6(preact@10.24.3)(vite@5.4.11(@types/node@22.9.0))':
     dependencies:
       '@babel/core': 7.26.0
       '@prefresh/babel-plugin': 0.5.1
@@ -1859,23 +1859,23 @@ snapshots:
       '@prefresh/utils': 1.2.0
       '@rollup/pluginutils': 4.2.1
       preact: 10.24.3
-      vite: 5.4.11
+      vite: 5.4.11(@types/node@22.9.0)
     transitivePeerDependencies:
       - supports-color
 
   '@radix-ui/primitive@1.1.0': {}
 
-  '@radix-ui/react-arrow@1.1.0(react-dom@18.3.1)(react@18.3.1)':
+  '@radix-ui/react-arrow@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@radix-ui/react-primitive': 2.0.0(react-dom@18.3.1)(react@18.3.1)
+      '@radix-ui/react-primitive': 2.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@radix-ui/react-collection@1.1.0(react-dom@18.3.1)(react@18.3.1)':
+  '@radix-ui/react-collection@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@radix-ui/react-compose-refs': 1.1.0(react@18.3.1)
       '@radix-ui/react-context': 1.1.0(react@18.3.1)
-      '@radix-ui/react-primitive': 2.0.0(react-dom@18.3.1)(react@18.3.1)
+      '@radix-ui/react-primitive': 2.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-slot': 1.1.0(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -1892,18 +1892,18 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  '@radix-ui/react-dialog@1.1.2(react-dom@18.3.1)(react@18.3.1)':
+  '@radix-ui/react-dialog@1.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@radix-ui/primitive': 1.1.0
       '@radix-ui/react-compose-refs': 1.1.0(react@18.3.1)
       '@radix-ui/react-context': 1.1.1(react@18.3.1)
-      '@radix-ui/react-dismissable-layer': 1.1.1(react-dom@18.3.1)(react@18.3.1)
+      '@radix-ui/react-dismissable-layer': 1.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-focus-guards': 1.1.1(react@18.3.1)
-      '@radix-ui/react-focus-scope': 1.1.0(react-dom@18.3.1)(react@18.3.1)
+      '@radix-ui/react-focus-scope': 1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-id': 1.1.0(react@18.3.1)
-      '@radix-ui/react-portal': 1.1.2(react-dom@18.3.1)(react@18.3.1)
-      '@radix-ui/react-presence': 1.1.1(react-dom@18.3.1)(react@18.3.1)
-      '@radix-ui/react-primitive': 2.0.0(react-dom@18.3.1)(react@18.3.1)
+      '@radix-ui/react-portal': 1.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-presence': 1.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-primitive': 2.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-slot': 1.1.0(react@18.3.1)
       '@radix-ui/react-use-controllable-state': 1.1.0(react@18.3.1)
       aria-hidden: 1.2.4
@@ -1915,24 +1915,24 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  '@radix-ui/react-dismissable-layer@1.1.1(react-dom@18.3.1)(react@18.3.1)':
+  '@radix-ui/react-dismissable-layer@1.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@radix-ui/primitive': 1.1.0
       '@radix-ui/react-compose-refs': 1.1.0(react@18.3.1)
-      '@radix-ui/react-primitive': 2.0.0(react-dom@18.3.1)(react@18.3.1)
+      '@radix-ui/react-primitive': 2.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-use-callback-ref': 1.1.0(react@18.3.1)
       '@radix-ui/react-use-escape-keydown': 1.1.0(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@radix-ui/react-dropdown-menu@2.1.2(react-dom@18.3.1)(react@18.3.1)':
+  '@radix-ui/react-dropdown-menu@2.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@radix-ui/primitive': 1.1.0
       '@radix-ui/react-compose-refs': 1.1.0(react@18.3.1)
       '@radix-ui/react-context': 1.1.1(react@18.3.1)
       '@radix-ui/react-id': 1.1.0(react@18.3.1)
-      '@radix-ui/react-menu': 2.1.2(react-dom@18.3.1)(react@18.3.1)
-      '@radix-ui/react-primitive': 2.0.0(react-dom@18.3.1)(react@18.3.1)
+      '@radix-ui/react-menu': 2.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-primitive': 2.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-use-controllable-state': 1.1.0(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -1941,10 +1941,10 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  '@radix-ui/react-focus-scope@1.1.0(react-dom@18.3.1)(react@18.3.1)':
+  '@radix-ui/react-focus-scope@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@radix-ui/react-compose-refs': 1.1.0(react@18.3.1)
-      '@radix-ui/react-primitive': 2.0.0(react-dom@18.3.1)(react@18.3.1)
+      '@radix-ui/react-primitive': 2.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-use-callback-ref': 1.1.0(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -1954,22 +1954,22 @@ snapshots:
       '@radix-ui/react-use-layout-effect': 1.1.0(react@18.3.1)
       react: 18.3.1
 
-  '@radix-ui/react-menu@2.1.2(react-dom@18.3.1)(react@18.3.1)':
+  '@radix-ui/react-menu@2.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@radix-ui/primitive': 1.1.0
-      '@radix-ui/react-collection': 1.1.0(react-dom@18.3.1)(react@18.3.1)
+      '@radix-ui/react-collection': 1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-compose-refs': 1.1.0(react@18.3.1)
       '@radix-ui/react-context': 1.1.1(react@18.3.1)
       '@radix-ui/react-direction': 1.1.0(react@18.3.1)
-      '@radix-ui/react-dismissable-layer': 1.1.1(react-dom@18.3.1)(react@18.3.1)
+      '@radix-ui/react-dismissable-layer': 1.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-focus-guards': 1.1.1(react@18.3.1)
-      '@radix-ui/react-focus-scope': 1.1.0(react-dom@18.3.1)(react@18.3.1)
+      '@radix-ui/react-focus-scope': 1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-id': 1.1.0(react@18.3.1)
-      '@radix-ui/react-popper': 1.2.0(react-dom@18.3.1)(react@18.3.1)
-      '@radix-ui/react-portal': 1.1.2(react-dom@18.3.1)(react@18.3.1)
-      '@radix-ui/react-presence': 1.1.1(react-dom@18.3.1)(react@18.3.1)
-      '@radix-ui/react-primitive': 2.0.0(react-dom@18.3.1)(react@18.3.1)
-      '@radix-ui/react-roving-focus': 1.1.0(react-dom@18.3.1)(react@18.3.1)
+      '@radix-ui/react-popper': 1.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-portal': 1.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-presence': 1.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-primitive': 2.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-roving-focus': 1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-slot': 1.1.0(react@18.3.1)
       '@radix-ui/react-use-callback-ref': 1.1.0(react@18.3.1)
       aria-hidden: 1.2.4
@@ -1977,13 +1977,13 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       react-remove-scroll: 2.6.0(react@18.3.1)
 
-  '@radix-ui/react-popper@1.2.0(react-dom@18.3.1)(react@18.3.1)':
+  '@radix-ui/react-popper@1.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@floating-ui/react-dom': 2.1.2(react-dom@18.3.1)(react@18.3.1)
-      '@radix-ui/react-arrow': 1.1.0(react-dom@18.3.1)(react@18.3.1)
+      '@floating-ui/react-dom': 2.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-arrow': 1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-compose-refs': 1.1.0(react@18.3.1)
       '@radix-ui/react-context': 1.1.0(react@18.3.1)
-      '@radix-ui/react-primitive': 2.0.0(react-dom@18.3.1)(react@18.3.1)
+      '@radix-ui/react-primitive': 2.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-use-callback-ref': 1.1.0(react@18.3.1)
       '@radix-ui/react-use-layout-effect': 1.1.0(react@18.3.1)
       '@radix-ui/react-use-rect': 1.1.0(react@18.3.1)
@@ -1992,35 +1992,35 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@radix-ui/react-portal@1.1.2(react-dom@18.3.1)(react@18.3.1)':
+  '@radix-ui/react-portal@1.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@radix-ui/react-primitive': 2.0.0(react-dom@18.3.1)(react@18.3.1)
+      '@radix-ui/react-primitive': 2.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-use-layout-effect': 1.1.0(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@radix-ui/react-presence@1.1.1(react-dom@18.3.1)(react@18.3.1)':
+  '@radix-ui/react-presence@1.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@radix-ui/react-compose-refs': 1.1.0(react@18.3.1)
       '@radix-ui/react-use-layout-effect': 1.1.0(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@radix-ui/react-primitive@2.0.0(react-dom@18.3.1)(react@18.3.1)':
+  '@radix-ui/react-primitive@2.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@radix-ui/react-slot': 1.1.0(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@radix-ui/react-roving-focus@1.1.0(react-dom@18.3.1)(react@18.3.1)':
+  '@radix-ui/react-roving-focus@1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@radix-ui/primitive': 1.1.0
-      '@radix-ui/react-collection': 1.1.0(react-dom@18.3.1)(react@18.3.1)
+      '@radix-ui/react-collection': 1.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-compose-refs': 1.1.0(react@18.3.1)
       '@radix-ui/react-context': 1.1.0(react@18.3.1)
       '@radix-ui/react-direction': 1.1.0(react@18.3.1)
       '@radix-ui/react-id': 1.1.0(react@18.3.1)
-      '@radix-ui/react-primitive': 2.0.0(react-dom@18.3.1)(react@18.3.1)
+      '@radix-ui/react-primitive': 2.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-use-callback-ref': 1.1.0(react@18.3.1)
       '@radix-ui/react-use-controllable-state': 1.1.0(react@18.3.1)
       react: 18.3.1
@@ -2438,7 +2438,7 @@ snapshots:
     dependencies:
       '@0no-co/graphql.web': 1.0.11(graphql@16.9.0)
       '@0no-co/graphqlsp': 1.12.16(graphql@16.9.0)(typescript@5.6.3)
-      '@gql.tada/cli-utils': 1.6.3(@0no-co/graphqlsp@1.12.16)(graphql@16.9.0)(typescript@5.6.3)
+      '@gql.tada/cli-utils': 1.6.3(@0no-co/graphqlsp@1.12.16(graphql@16.9.0)(typescript@5.6.3))(graphql@16.9.0)(typescript@5.6.3)
       '@gql.tada/internal': 1.0.8(graphql@16.9.0)(typescript@5.6.3)
       typescript: 5.6.3
     transitivePeerDependencies:
@@ -2688,12 +2688,13 @@ snapshots:
 
   valibot@0.36.0: {}
 
-  vite@5.4.11:
+  vite@5.4.11(@types/node@22.9.0):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.49
       rollup: 4.27.2
     optionalDependencies:
+      '@types/node': 22.9.0
       fsevents: 2.3.3
 
   wrappy@1.0.2: {}
@@ -2702,5 +2703,6 @@ snapshots:
 
   zustand@4.5.5(react@18.3.1):
     dependencies:
-      react: 18.3.1
       use-sync-external-store: 1.2.2(react@18.3.1)
+    optionalDependencies:
+      react: 18.3.1

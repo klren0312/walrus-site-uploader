@@ -9,22 +9,22 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@aptos-labs/ts-sdk": "^1.27.1",
-    "@mysten/bcs": "^1.0.4",
-    "@mysten/dapp-kit": "^0.14.19",
-    "@mysten/sui": "^1.8.0",
-    "@tanstack/react-query": "^5.55.4",
+    "@aptos-labs/ts-sdk": "^1.33.0",
+    "@mysten/bcs": "^1.1.0",
+    "@mysten/dapp-kit": "^0.14.33",
+    "@mysten/sui": "^1.14.3",
+    "@tanstack/react-query": "^5.60.5",
     "base36": "^1.0.0",
     "buffer": "^6.0.3",
-    "file-type": "^19.5.0",
+    "file-type": "^19.6.0",
     "js-base64": "^3.7.7",
     "mime": "^4.0.4",
     "mime-types": "^2.1.35",
-    "preact": "^10.23.1"
+    "preact": "^10.24.3"
   },
   "devDependencies": {
-    "@preact/preset-vite": "^2.9.0",
-    "typescript": "^5.5.3",
-    "vite": "^5.4.1"
+    "@preact/preset-vite": "^2.9.1",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
   }
 }
