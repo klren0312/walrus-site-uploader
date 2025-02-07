@@ -21,7 +21,7 @@ const { networkConfig, useNetworkVariable, useNetworkVariables } =
       url: getFullnodeUrl('devnet'),
     },
     testnet: {
-      url: 'https://sui-testnet-endpoint.blockvision.org/',
+      url: 'https://fullnode.testnet.sui.io',
     },
     mainnet: {
       url: getFullnodeUrl('mainnet'),

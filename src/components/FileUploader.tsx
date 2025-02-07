@@ -48,7 +48,7 @@ const FileUploader = () => {
         ])
         // 上传文件到walrus存储
         const resJson: UploadWalrusResponse = await fetch(
-          'https://publisher.walrus-testnet.walrus.space/v1/store',
+          'http://127.0.0.1:31415/v1/store?epochs=200',
           {
             method: 'PUT',
             body: detail.content,

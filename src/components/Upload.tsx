@@ -2,6 +2,7 @@ import { Transaction } from '@mysten/sui/transactions'
 import {
   useCurrentAccount,
   useSignAndExecuteTransaction,
+  useSuiClient,
   useSuiClientContext,
 } from '@mysten/dapp-kit'
 import mime from 'mime'
@@ -20,9 +21,11 @@ export default function Upload({
   const [genLoading, setGenLoading] = useState(false)
   const [error, setError] = useState('')
   const [url, setUrl] = useState('')
+  const [objectId, setObjectId] = useState('')
   const { mutate: signAndExecuteTransaction } = useSignAndExecuteTransaction()
   const account = useCurrentAccount()
   const context = useSuiClientContext()
+  const client = useSuiClient()
   /**
    * 通过交易hash获取site的objectId
    * @param digest 交易hash
@@ -49,6 +52,7 @@ export default function Upload({
     })
     const objectId = res.effects?.created?.find(item => (item.owner as { AddressOwner: string }).AddressOwner === account?.address)?.reference.objectId
     if (objectId) {
+      setObjectId(objectId)
       const base36 = addressToBase36(objectId)
       const url = `https://${base36}.walrus.site`
       setUrl(url)
@@ -141,8 +145,14 @@ export default function Upload({
         transaction: txb,
       },
       {
-        onSuccess: (result) => {
+        onSuccess: async (result) => {
           console.log('executed transaction', result)
+          await client.waitForTransaction({
+            digest: result.digest,
+            options: {
+              showEffects: true,
+            },
+          })
           getWalrusUrl(result.digest)
           setGenLoading(false)
         },
@@ -170,6 +180,7 @@ export default function Upload({
         <div><a href={url} target="__blank">{url}</a></div> :
         ''
       }
+      <div>objectId: {objectId}</div>
     </>
   )
 }
